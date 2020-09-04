@@ -64,7 +64,7 @@ function setupBadGuys(num) {
 function randomColor() {
     function c() {
         let hex = Math.floor(Math.random() * 256).toString(16);
-        return ('0' + String(hex)).substr(-6);
+        return ( String(hex)).substr(-6);
     }
     return '#' + c() + c() + c();
 }
@@ -165,9 +165,10 @@ function moveBadGuys() {
             if (hitCar) {
                 player.speed = 0;
                 player.lives--;
-                if (player.lives <= 0) {
-                    player.gameEndCounter = 0;
+                if (player.lives == 0) {
+                    player.gameEndCounter = 1;
                     gameOverPlay();
+                    document.querySelector('.gameoverscreen').innerHTML= 'You Lose';
                 }
                 makeBad(tempBaddy[i]);
                 
@@ -175,13 +176,13 @@ function moveBadGuys() {
         }
     }
 }
+
 function gameOverPlay() {
     let div = document.createElement('div');
-    div.setAttribute('class', 'road');
+    div.setAttribute('class', 'gameoverscreen');
     div.style.top = '0px';
-    div.style.width = '250px';
     div.style.backgroundColor = 'red';
-    div.innerHTML = 'FINISH';
+    div.innerHTML = 'You Win';
     div.style.fontSize = '3em';
     container.appendChild(div);
     player.gameEndCounter = 12;
@@ -189,6 +190,7 @@ function gameOverPlay() {
     btnStart.removeEventListener('click', pauseGame);
     btnStart.addEventListener('click', startGame);
     btnStart.innerHTML= 'start game';
+   
 }
 function playGame() {
     if (gamePlay) {
@@ -235,6 +237,7 @@ function playGame() {
             btnStart.style.display = 'block';
         }
     }
+
 }
 
 

@@ -9,7 +9,7 @@ body{
        left:5%;
        background-color:green;
        overflow: hidden;
-       margin: 0 auto;
+       margin: 1em auto;
    }
    .dashboard{
        background-color: black;
@@ -60,7 +60,7 @@ body{
        top:0px;
        left:0px;
        border-radius: 5px;
-       background-image: url(/images/car1.png);
+       background-image: url(/images/car2.png);
        background-size: cover;
        z-index: 99;
        text-align: center;
@@ -76,4 +76,13 @@ body{
        background-image: url(/images/playercar.png);
        background-size: cover;
        z-index: 100;
+   }
+   .gameoverscreen{
+       position: absolute;
+       width: 100%;
+       height: 100%;
+       display: block;
+       z-index: 200;
+       color: white;
+       text-align: center;
    }
